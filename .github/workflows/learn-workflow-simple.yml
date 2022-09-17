@@ -1,0 +1,15 @@
+name: 'learn workflow pm2'
+on:
+  push:
+    branches: 
+      - 'master'
+      - 'main'
+
+jobs:
+  check-pm2-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+      - run: npm install -g pm2
+      - run: pm2 -v
